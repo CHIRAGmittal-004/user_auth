@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block start %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary p-3 shadow-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+            {% if not request.user.is_authanticated %}
+            <a href="/logout" class="btn btn-outline-success" type="submit">Logout</a>
+            {% else %}
+            <a href="/login" class="btn btn-outline-success" type="submit">Login</a>
+            {% endif %}
+        </form>
+      </div>
+    </div>
+</nav>
+<div class="my-5">
+<h1>Welcome to my website</h1>
+</div>
+
+
+{% endblock start %}
